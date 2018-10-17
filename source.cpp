@@ -3,7 +3,7 @@
 
 using namespace std;
 
-//Procedure qui affiche le menu
+//Procédure qui affiche le menu
 void menu() {
     cout << endl << "1 - Ajouter un maillon" << endl;
     cout << "2 - Consulter la file" << endl;
@@ -12,11 +12,19 @@ void menu() {
     cout << "5 - Quitter" << endl;
 }
 
+//Procédure qui initialise un maillon
+//Paramètre d'entrée : maillon
+//Paramètre de sortie : maillon
+//Post condition : un maillon initialisé
 void initMaillon(Maillon *maillon) {
     maillon->numero = 0;
     maillon->suivant = nullptr;
 }
 
+//Procédure qui ajoute un maillon dans la liste de maillon
+//Paramètre d'entrée : maillon, numéro
+//Paramètre de sortie : maillon
+//Post condition : maillon ajouté dans la file juste avant le premier maillon
 void ajouterMaillon(Maillon *np, int numero) {
 
     Maillon *newMaillon;
@@ -51,6 +59,9 @@ void ajouterMaillon(Maillon *np, int numero) {
     }
 }
 
+//Fonction qui retourne le nombre de maillon présent dans la liste
+//Paramètre d'entrée : maillon
+//Retourne le nombre de maillon dans la file
 int nbMaillon(Maillon *np) {
 
     int compt = 1;
@@ -74,6 +85,10 @@ int nbMaillon(Maillon *np) {
     }
 }
 
+//Procédure qui affiche la liste de maillon
+//Paramètre d'entrée : maillon
+//Paramètre de sortie : maillon
+//Post condition : affiche tout les maillons dans la liste
 void afficherMaillon(Maillon *np) {
     if (np->suivant == nullptr) {
         cout << "Il n'y a pas de file !" << endl;
@@ -91,6 +106,10 @@ void afficherMaillon(Maillon *np) {
     }
 }
 
+//Procédure qui fait avancer d'un cran le maillon pointeur
+//Paramètre d'entrée : maillon
+//Paramètre de sortie : maillon
+//Post condition : fait avancer de un le maillon pointeur
 void faireAvancerMaillon(Maillon *np) {
     if (np->suivant == nullptr) {
         cout << "La file est vide !" << endl;
