@@ -43,5 +43,6 @@ int main() {
         cin >> choix;
     }
 
+    desinitMaillon(np);
 
 }

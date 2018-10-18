@@ -22,4 +22,6 @@ void faireAvancerMaillon(Maillon *np);
 
 void menu();
 
+void desinitMaillon(Maillon *maillon);
+
 #endif //TP55_MAILLON_H

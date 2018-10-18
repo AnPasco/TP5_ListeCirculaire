@@ -21,6 +21,31 @@ void initMaillon(Maillon *maillon) {
     maillon->suivant = nullptr;
 }
 
+//Procédure qui désinitialise un maillon
+//Paramètre d'entrée : maillon
+//Paramètre de sortie : maillon
+//Post condition : un maillon vide
+void desinitMaillon(Maillon *maillon) {
+    if (maillon->suivant == nullptr) {
+        free(maillon);
+    } else {
+        Maillon *actuelle, *premier, *suppr;
+        premier = (Maillon *) malloc(sizeof(Maillon));
+        actuelle = (Maillon *) malloc(sizeof(Maillon));
+        suppr = (Maillon *) malloc(sizeof(Maillon));
+        premier = maillon->suivant;
+        actuelle = maillon->suivant->suivant;
+
+        do {
+            suppr = actuelle;
+            actuelle = actuelle->suivant;
+            free(suppr);
+        } while (actuelle != premier);
+
+        free(maillon);
+    }
+}
+
 //Procédure qui ajoute un maillon dans la liste de maillon
 //Paramètre d'entrée : maillon, numéro
 //Paramètre de sortie : maillon
@@ -81,7 +106,6 @@ int nbMaillon(Maillon *np) {
             actuelle = actuelle->suivant;
         }
         return compt;
-
     }
 }
 
